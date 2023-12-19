@@ -1,4 +1,4 @@
-import io from "socket.io-client";
+import * as io from "socket.io-client";
 import { useState } from "react";
 import Chat from "./Chat";
 import img1 from "./img/peakpx.jpg";
