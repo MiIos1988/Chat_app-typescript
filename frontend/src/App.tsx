@@ -4,6 +4,7 @@ import Chat from "./Chat";
 import img1 from "./img/peakpx.jpg";
 
 const socket = io.connect("https://chat-app-g62u.onrender.com");
+console.log(socket)
 
 function App() {
   const [username, setUsername] = useState("");

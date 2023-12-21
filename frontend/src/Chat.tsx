@@ -1,11 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BsFillSendFill } from "react-icons/bs";
-import ScrollToBottom from "react-scroll-to-bottom";
+import ScrollToBottom from "react-scroll-to-bottom";    
+import { Socket } from "socket.io-client";
 
-function Chat({ socket, room, username }) {
+type ChatProps = {socket: Socket, room: string, username: string};
+
+type MessageData = {
+  room: string;
+  author: string;
+  message: string;
+  time: string;
+}
+
+function Chat({ socket, room, username }: ChatProps) {
   const [currentMessage, setCurrentMessage] = useState("");
-  const [messageList, setMessageList] = useState([]);
-  const inputRef = useRef();
+  const [messageList, setMessageList] = useState<MessageData[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     socket.on("receiveMessage", (data) => {
@@ -15,7 +25,7 @@ function Chat({ socket, room, username }) {
   }, [socket]);
 
   useEffect(() => {
-    inputRef.current.focus();
+    inputRef.current?.focus();
   }, []
   )
 
