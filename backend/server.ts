@@ -1,7 +1,9 @@
 import { Socket } from "socket.io";
-const app = require("express")();
-const cors = require("cors");
-const server = require("http").createServer(app);
+import express from "express"
+const app = express();
+import cors from "cors"
+import { createServer } from "http";
+const server = createServer(app);
 const portNumber = 3500;
 
 app.use(cors());
@@ -28,7 +30,7 @@ io.on("connection", (socket: Socket) => {
   });
 });
 
-server.listen(portNumber, (error: Error | null) => {
+server.listen(portNumber, (error?: Error ) => {
   error
     ? console.log("Error on server start")
     : console.log(`Server is running on port ${portNumber}`);

@@ -19,7 +19,6 @@ function Chat({ socket, room, username }: ChatProps) {
 
   useEffect(() => {
     socket.on("receiveMessage", (data) => {
-      console.log("1222222", messageList);
       setMessageList((list) => [...list, data]);
     });
   }, [socket]);
