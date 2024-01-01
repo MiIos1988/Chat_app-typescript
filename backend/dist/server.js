@@ -12,7 +12,7 @@ const portNumber = 3500;
 app.use((0, cors_1.default)());
 const io = require("socket.io")(server, {
     cors: {
-        origin: "https://chat-app-typescript-sooty.vercel.app/",
+        origin: "http://localhost:3001",
         methods: ["GET", "POST"],
     },
 });
