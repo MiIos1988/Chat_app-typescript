@@ -9,7 +9,7 @@ const portNumber = 3500;
 app.use(cors());
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://chat-app-typescript-sooty.vercel.app/",
+    origin: "https://chat-app-typescript-sooty.vercel.app",
     methods: ["GET", "POST"],
   },
 });
